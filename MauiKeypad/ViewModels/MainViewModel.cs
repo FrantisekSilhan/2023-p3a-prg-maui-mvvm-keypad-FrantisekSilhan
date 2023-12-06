@@ -19,6 +19,9 @@ namespace MauiKeypad.ViewModels
             {
                 _code = value;
                 OnPropertyChanged();
+                Back?.ChangeCanExecute();
+                Ok?.ChangeCanExecute();
+                AddNumber?.ChangeCanExecute();
             }
         }
 
@@ -36,6 +39,10 @@ namespace MauiKeypad.ViewModels
             set
             {
                 _state = value;
+                OnPropertyChanged();
+                Back?.ChangeCanExecute();
+                Ok?.ChangeCanExecute();
+                AddNumber?.ChangeCanExecute();
             }
         }
         public MainViewModel()
@@ -48,6 +55,10 @@ namespace MauiKeypad.ViewModels
                 {
                     Code += x;
                 }
+            },
+            (x) =>
+            {
+                return Code.Length < 6 && State == EntryState.InProgress;
             });
 
             Reset = new Command(() =>
@@ -58,12 +69,30 @@ namespace MauiKeypad.ViewModels
 
             Ok = new Command(() =>
             {
-
+                if (Code == "123456")
+                {
+                    State = EntryState.Success;
+                }
+                else
+                {
+                    State = EntryState.Denied;
+                }
+            },
+            () =>
+            {
+                return Code.Length > 1 && State == EntryState.InProgress;
             });
 
             Back = new Command(() =>
             {
-                Code = Code.Remove(Code.Length - 1, 1);
+                if (Code.Length > 0)
+                {
+                    Code = Code.Remove(Code.Length - 1, 1);
+                }
+            },
+            () =>
+            {
+                return Code.Length > 0 && State == EntryState.InProgress;
             });
         }
 
