@@ -24,6 +24,8 @@ namespace MauiKeypad.ViewModels
 
         public Command<string> AddNumber { get; set; }
         public Command Reset { get; set; }
+        public Command Ok { get; set; }
+        public Command Back { get; set; }
 
         public EntryState State
         {
@@ -39,6 +41,7 @@ namespace MauiKeypad.ViewModels
         public MainViewModel()
         {
             Code = "";
+            State = EntryState.InProgress;
             AddNumber = new Command<string>((x) =>
             {
                 if (Code.Length < 6)
@@ -51,6 +54,16 @@ namespace MauiKeypad.ViewModels
             {
                 Code = "";
                 State = EntryState.InProgress;
+            });
+
+            Ok = new Command(() =>
+            {
+
+            });
+
+            Back = new Command(() =>
+            {
+                Code = Code.Remove(Code.Length - 1, 1);
             });
         }
 
