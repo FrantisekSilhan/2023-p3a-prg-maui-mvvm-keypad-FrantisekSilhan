@@ -18,6 +18,7 @@ namespace MauiKeypad.ViewModels
             set
             {
                 _code = value;
+                OnPropertyChanged();
             }
         }
 
@@ -36,6 +37,7 @@ namespace MauiKeypad.ViewModels
         }
         public MainViewModel()
         {
+            Code = "";
             AddNumber = new Command<string>((x) =>
             {
                 if (Code.Length < 6)
