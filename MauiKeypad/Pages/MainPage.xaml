@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiKeypad.MainPage">
+    <ScrollView>
+        <Frame BackgroundColor="LightGray" MaximumWidthRequest="640" MaximumHeightRequest="640" HorizontalOptions="Center" VerticalOptions="Center" Padding="10" CornerRadius="10">
+            <VerticalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="10" FontAttributes="None">Zadejte kód</Label>
+                <Frame CornerRadius="10">
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="3" FontAttributes="None" Text="{Binding Code}"/>
+                </Frame>
+                <Grid HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Button Text="1" />
+                    <Button Text="2" Grid.Column="1" />
+                    <Button Text="3" Grid.Column="2" />
+                    <Button Text="4" Grid.Row="1" />
+                    <Button Text="5" Grid.Column="1" Grid.Row="1" />
+                    <Button Text="6" Grid.Column="2" Grid.Row="1" />
+                    <Button Text="7" Grid.Row="2" />
+                    <Button Text="8" Grid.Column="1" Grid.Row="2" />
+                    <Button Text="9" Grid.Column="2" Grid.Row="2" />
+                    <Button Text="0" Grid.Row="3" />
+                    <Button Text="Back" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
+                    <Button Text="✓" Grid.Column="4" Grid.RowSpan="2"  />
+                    <Button Text="✕" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" />
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+
+</ContentPage>
