@@ -14,7 +14,6 @@
             </Frame.BindingContext>
             <VerticalStackLayout>
                 <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="10" FontAttributes="None">Zadejte kód</Label>
-                <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="3" FontAttributes="None" Text="{Binding State}"/>
                 <Frame CornerRadius="10" BackgroundColor="{Binding State, Converter={StaticResource stc}}">
                     <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="3" FontAttributes="None" Text="{Binding Code}"/>
                 </Frame>
