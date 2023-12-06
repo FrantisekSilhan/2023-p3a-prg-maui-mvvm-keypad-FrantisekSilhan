@@ -6,10 +6,10 @@ namespace MauiKeypad.ViewModels
 {
     internal class MainViewModel : INotifyPropertyChanged
     {
-        private int _code;
+        private string _code;
         private EntryState _state;
 
-        public int Code
+        public string Code
         {
             get
             {
@@ -20,6 +20,8 @@ namespace MauiKeypad.ViewModels
                 _code = value;
             }
         }
+
+        public Command<string> AddNumber { get; set; }
 
         public EntryState State
         {
@@ -34,7 +36,13 @@ namespace MauiKeypad.ViewModels
         }
         public MainViewModel()
         {
-
+            AddNumber = new Command<string>((x) =>
+            {
+                if (Code.Length < 6)
+                {
+                    Code += x;
+                }
+            });
         }
 
         #region MVVM
