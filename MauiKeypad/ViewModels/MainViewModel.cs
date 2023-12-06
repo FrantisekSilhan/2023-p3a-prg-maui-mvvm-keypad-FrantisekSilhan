@@ -23,6 +23,7 @@ namespace MauiKeypad.ViewModels
         }
 
         public Command<string> AddNumber { get; set; }
+        public Command Reset { get; set; }
 
         public EntryState State
         {
@@ -44,6 +45,12 @@ namespace MauiKeypad.ViewModels
                 {
                     Code += x;
                 }
+            });
+
+            Reset = new Command(() =>
+            {
+                Code = "";
+                State = EntryState.InProgress;
             });
         }
 

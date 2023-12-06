@@ -38,7 +38,7 @@
                     <Button Text="0" Grid.Row="3" Command="{Binding AddNumber}" CommandParameter="0" />
                     <Button Text="Back" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
                     <Button Text="✓" Grid.Column="4" Grid.RowSpan="2"  />
-                    <Button Text="✕" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" />
+                    <Button Text="✕" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Command="{Binding Reset}" />
                 </Grid>
             </VerticalStackLayout>
         </Frame>
